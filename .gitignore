@@ -6,6 +6,7 @@ jspm_packages
 .serverless
 
 yarn.lock
+package-lock.json
 
 .env
 absence.json
