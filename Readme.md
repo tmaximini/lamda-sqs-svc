@@ -56,3 +56,11 @@ For example, using `curl` or something like [Postwoman](https://postwoman.io/):
 ```bash
 curl -H "Content-Type: application/json" -X POST -d "{\"username\": \"<your email>\", \"token\": \"<your api token>\"}" <your endpoint>
 ```
+
+On AWS, the service will create a single JSON file per user on the S3 bucket:
+
+![S3_bucket](./docs/s3.png)
+
+## Running the tests
+
+`npm run test`
