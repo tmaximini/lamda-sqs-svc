@@ -21,7 +21,7 @@ provider:
       Resource: arn:aws:s3:::${self:custom.s3BucketName}
 
 custom:
-  awsAccountId: "330666908685"
+  awsAccountId: "123456789"
   sqsQueueName: SnsNmbrsQueue
   s3BucketName: nmbrs-users-absence
 

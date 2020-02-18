@@ -31,7 +31,7 @@ Edit the `serverless.yml` file in the project root to add your AWS Account ID an
 
 ```yml
 custom:
-  awsAccountId: "330666908685"
+  awsAccountId: "123456789"
   sqsQueueName: SnsNmbrsQueue
   s3BucketName: nmbrs-users-absence
 ```
@@ -56,5 +56,3 @@ For example, using `curl` or something like [Postwoman](https://postwoman.io/):
 ```bash
 curl -H "Content-Type: application/json" -X POST -d "{\"username\": \"<your email>\", \"token\": \"<your api token>\"}" <your endpoint>
 ```
-
-You can also use my already deployed endpoint: https://vmxmnvfzbe.execute-api.eu-central-1.amazonaws.com/dev/send
