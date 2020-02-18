@@ -1,0 +1,52 @@
+service: lamda-nmbrs-svc
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+  stage: dev
+  region: eu-central-1
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - sqs:DeleteMessage
+        - sqs:ReceiveMessage
+        - sqs:SendMessage
+      Resource: arn:aws:sqs:eu-central-1:${self:custom.awsAccountId}:${self:custom.sqsQueueName}
+    - Effect: Allow
+      Action:
+        - s3:ListBucket
+        - s3:PutObject
+      Resource: arn:aws:s3:::${self:custom.s3BucketName}
+
+custom:
+  awsAccountId: "330666908685"
+  sqsQueueName: SnsNmbrsQueue
+  s3BucketName: nmbrs-users-absence
+
+functions:
+  receive:
+    handler: functions/receiver.handleIncomingMsg
+    events:
+      - sqs: arn:aws:sqs:eu-central-1:${self:custom.awsAccountId}:${self:custom.sqsQueueName}
+
+  send:
+    handler: functions/sender.sendMsg
+    events:
+      - http:
+          path: send
+          method: post
+          cors: true
+
+resources:
+  Resources:
+    SnsNmbrsQueue:
+      Type: AWS::SQS::Queue
+
+      Properties:
+        QueueName: ${self:custom.sqsQueueName}
+    NmbrsBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.s3BucketName}
