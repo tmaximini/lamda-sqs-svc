@@ -1,6 +1,6 @@
 # Nmbrs service
 
-Coding challenge I did for Officient.io, who never got back to me afterwards 💩
+Coding challenge I did for Officient.io 💩
 
 ## Description
 
