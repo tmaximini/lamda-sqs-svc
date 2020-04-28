@@ -1,5 +1,7 @@
 # Nmbrs service
 
+Coding challenge I did for Officient.io, who never got back to me afterwards 💩
+
 ## Description
 
 This service collects absence times from the [Nmbrs](https://nmbrs.nl/) software.
