@@ -5,7 +5,7 @@
   "author": "Thomas Maximini <tmaximini@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.616.0",
+    "aws-sdk": "^2.814.0",
     "dotenv": "^8.2.0",
     "easy-soap-request": "^3.2.0",
     "fast-xml-parser": "^3.16.0"
